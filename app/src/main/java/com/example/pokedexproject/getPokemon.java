@@ -71,7 +71,6 @@ public class getPokemon extends Fragment {
     private Retrofit retrofit;
     private RecyclerView recyclerView;
     private ListaPokemonAdapter listaPokemonAdapter;
-    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,15 +79,6 @@ public class getPokemon extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-        //TextView textView = (TextView) getView().findViewById(R.id.textView);
-        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
-        listaPokemonAdapter = new ListaPokemonAdapter();
-        recyclerView.setAdapter(listaPokemonAdapter);
-        recyclerView.setHasFixedSize(true);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
-        recyclerView.setLayoutManager(layoutManager);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
@@ -110,10 +100,10 @@ public class getPokemon extends Fragment {
                     ArrayList<Pokemon> listaPokemon = pokeRespuesta.getResults();
 
                     listaPokemonAdapter.setListPokemon(listaPokemon);
-                    /*for (int i = 0; i < listaPokemon.size(); i++) {
+                    for (int i = 0; i < listaPokemon.size(); i++) {
                         Pokemon pokemon = listaPokemon.get(i);
                         Log.i(TAG, " Pokemon: " + pokemon.getName());
-                    }*/
+                    }
 
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
@@ -131,6 +121,16 @@ public class getPokemon extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_get_pokemon, container, false);
+        //return inflater.inflate(R.layout.fragment_get_pokemon, container, false);
+        View view = inflater.inflate(R.layout.fragment_get_pokemon, container, false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
+        listaPokemonAdapter = new ListaPokemonAdapter();
+        recyclerView.setAdapter(listaPokemonAdapter);
+        recyclerView.setHasFixedSize(true);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
+        recyclerView.setLayoutManager(layoutManager);
+
+        return  view;
     }
 }
