@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PokedexProject</string>
+    <string name="welcomeLabel">Bienvenido!</string>
+    <string name="name">Find By Name</string>
+    <string name="number">Find By Number</string>
+    <string name="type">Find By Type</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Text of Fragment</string>
+</resources>
