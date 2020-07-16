@@ -85,10 +85,11 @@ public class getPokemon extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        getData();
+        //getData();
     }
 
-    private void getData() {
+   /*
+   private void getData() {
         PokeApiService service = retrofit.create(PokeApiService.class);
         Call<PokeRespuesta> pokeRespuestaCall = service.obtenerPokemon();
 
@@ -116,6 +117,7 @@ public class getPokemon extends Fragment {
             }
         });
     }
+    */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -40,15 +40,15 @@ public class ListaPokemonAdapter extends RecyclerView.Adapter<ListaPokemonAdapte
     }
 
     public void setListPokemon(ArrayList<Pokemon> listaPokemon) {
-        data.addAll(listaPokemon);
+        //data.addAll(listaPokemon);
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textView;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             textView = (TextView) itemView.findViewById(R.id.pokemonNames);
